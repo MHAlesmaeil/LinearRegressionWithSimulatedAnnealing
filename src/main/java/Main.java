@@ -14,7 +14,10 @@ public class Main {
         double[] [] v = (double[][]) arrayList.get(0);
         System.out.println(v[1][0]);*/
         RawData rawData = new RawData();
-        System.out.println(rawData.deviationOfElementRawFromAverage(1,1));
+        System.out.println(rawData.calculatingOfVaibaleCoefficient());
+
+
+
 
 
 
