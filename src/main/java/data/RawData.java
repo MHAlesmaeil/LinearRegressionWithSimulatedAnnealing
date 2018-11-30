@@ -10,7 +10,6 @@ public class RawData {
         } else {
             return 0;
         }
-
     }
 
     public int numberOfItemsOfSingleRaw() {
@@ -21,7 +20,6 @@ public class RawData {
             return 0;
         }
     }
-
     public double averageOfTheElement(int elementNumber) {
         double averageOfFirstElment = 0;
         for (int x = 0; x < list.length; x++) {
@@ -34,7 +32,6 @@ public class RawData {
         }
         return averageOfFirstElment;
     }
-
     public double deviationOfElementRawFromAverage(int rawNumber, int elemetPosition) {
         if (rawNumber < numberOfRaws() && rawNumber >= 0 && elemetPosition < numberOfItemsOfSingleRaw() && elemetPosition >= 0) {
             try {
@@ -47,15 +44,12 @@ public class RawData {
             }
         } else return 0;
     }
-
     public double giveMeTheSqueerRoot(double number) {
         return Math.sqrt(number);
     }
-
     public double giveMeTheSqueerRoot(int number) {
         return Math.sqrt(number);
     }
-
     public double calculatingOfVaibaleCoefficient() {
         double varibaleCoefficient = 0;
         double resultToBeMultiplyedInTheFunction=1;
@@ -70,8 +64,6 @@ public class RawData {
         }
         return varibaleCoefficient;
     }
-
-
 }
 
 
