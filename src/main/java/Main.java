@@ -11,10 +11,8 @@ public class Main {
         RawData rawData = new RawData();
         Implementation implementation = new Implementation();
         EstimatingTheValues estimatingTheValue = new EstimatingTheValues();
-        int y = 0;
-        while (y < 20) {
-            System.out.println(estimatingTheValue.giveMeARandom(2));
-            y++;
+        for (int x=0; x<30;x++){
+            estimatingTheValue.start();
         }
 
     }

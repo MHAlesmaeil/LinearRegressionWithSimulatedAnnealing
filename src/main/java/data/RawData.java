@@ -1,10 +1,10 @@
 package data;
 
 public class RawData {
-    /*double[][] list = {{140, 20}, {136, 10}, {94, 5}, {190, 22}, {161, 26}, {112, 12}, {143, 16}, {151, 7}, {103, 6}, {181, 34}, {176, 18}, {128, 4}};*/
+    double[][] list = {{140, 20}, {136, 10}, {94, 5}, {190, 22}, {161, 26}, {112, 12}, {143, 16}, {151, 7}, {103, 6}, {181, 34}, {176, 18}, {128, 4}};
 
     // smaller set of data for test purposes
-    double[][] list = {{140, 20,3}, {136, 10,3}};
+    /*double[][] list = {{140, 20,3}, {136, 10,3}};*/
 
     // returning the number of the raw
     public int numberOfRaws() {
