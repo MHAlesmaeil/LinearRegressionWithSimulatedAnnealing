@@ -21,16 +21,16 @@ public class RawData {
         }
     }
     public double averageOfTheElement(int elementNumber) {
-        double averageOfFirstElment = 0;
+        double averageOfItem = 0;
         for (int x = 0; x < list.length; x++) {
             double sum = 0;
             // summing the numbers
-            averageOfFirstElment += list[x][elementNumber - 1];
+            averageOfItem += list[x][elementNumber - 1];
             if (x == list.length - 1) {
-                averageOfFirstElment = averageOfFirstElment / (x + 1);
+                averageOfItem = averageOfItem / (x + 1);
             }
         }
-        return averageOfFirstElment;
+        return averageOfItem;
     }
     public double deviationOfElementRawFromAverage(int rawNumber, int elemetPosition) {
         if (rawNumber < numberOfRaws() && rawNumber >= 0 && elemetPosition < numberOfItemsOfSingleRaw() && elemetPosition >= 0) {
@@ -50,19 +50,52 @@ public class RawData {
     public double giveMeTheSqueerRoot(int number) {
         return Math.sqrt(number);
     }
-    public double calculatingOfVaibaleCoefficient() {
+
+
+    public double multiplicationOfDeviationOfVariableFromTheirMains(int rawNumber) {
         double varibaleCoefficient = 0;
         double resultToBeMultiplyedInTheFunction=1;
-        for (int x = 0; x < numberOfRaws() - 1; x++) {
-            varibaleCoefficient=0+resultToBeMultiplyedInTheFunction;
-            double resultTobeSquerred = giveMeTheSqueerRoot(resultToBeMultiplyedInTheFunction);
-
             for (int y = 0; y < numberOfItemsOfSingleRaw(); y++) {
-                double yVar = deviationOfElementRawFromAverage(x, y);
-                System.out.println(yVar);
-            }
+                double yVar = deviationOfElementRawFromAverage(rawNumber, y);
+                //System.out.println(yVar);
+                if (true)
+                    resultToBeMultiplyedInTheFunction = resultToBeMultiplyedInTheFunction*yVar;
         }
+        varibaleCoefficient= resultToBeMultiplyedInTheFunction;
         return varibaleCoefficient;
+    }
+    public double summingTheMulipilyedDeviation (){
+        double sum=0;
+        for (int x =0; x<numberOfRaws();x++){
+            sum+=multiplicationOfDeviationOfVariableFromTheirMains(x);
+        }
+        return sum;
+    }
+    public double squareDeviationOfAnEtlemFromTheMains (int rawNumber,int elementNumber){
+        double result =0;
+        // called the average of the item from the function
+        averageOfTheElement(elementNumber);
+        // squared of the called item - average
+        result = Math.pow(list[rawNumber][elementNumber]-averageOfTheElement(elementNumber+1),2);
+        return result ;
+    }
+    public double sumOfSquaredVariable (int elementNumber){
+        double sum=0;
+        try {
+            for (int x =0; x<numberOfRaws();x++){
+                sum+=squareDeviationOfAnEtlemFromTheMains(x,elementNumber);
+            }
+            return sum;
+        } catch (Exception e){
+            System.out.println(e);
+        }
+        return sum;
+    }
+    public double coefficientValeOfAnElemet (int elementNumber){
+        double value=0;
+        value= summingTheMulipilyedDeviation()/sumOfSquaredVariable(elementNumber);
+
+        return value;
     }
 }
 
