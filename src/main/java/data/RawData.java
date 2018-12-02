@@ -1,12 +1,13 @@
 package data;
 
+/**
+ * this class deals with the raw data and gives some basic methods to get more information about it
+*/
 public class RawData {
-    double[][] list = {{140, 20}, {136, 10}, {94, 5}, {190, 22}, {161, 26}, {112, 12}, {143, 16}, {151, 7}, {103, 6}, {181, 34}, {176, 18}, {128, 4}};
+    public double[][] list = {{140, 20,18,0}, {136, 10,0,1},{94, 5,24,0},{190, 22,0,1},{161, 26,18,0},{112, 12,12,0},{143, 16,12,0},{151, 7,18,1},{103, 6,0,0},{181, 34,18,1},{176, 18,0,1},{128, 4,24,0}};
 
-    // smaller set of data for test purposes
-    /*double[][] list = {{140, 20,3}, {136, 10,3}};*/
 
-    // returning the number of the raw
+    // returning the number of the raw or how many set of data are entered
     public int numberOfRaws() {
         if (list != null) {
             return list.length;
@@ -14,7 +15,7 @@ public class RawData {
             return 0;
         }
     }
-
+    // return how many elements in the first row
     public int numberOfItemsOfSingleRaw() {
         if (list != null) {
             double[] temp = list[0];
@@ -47,11 +48,13 @@ public class RawData {
             }
         } else return 0;
     }
+    // a function to get a square root
     public double giveMeTheSqueerRoot(double number) {
         return Math.sqrt(number);
     }
-    public double giveMeTheSqueerRoot(int number) {
-        return Math.sqrt(number);
+    // function to get a power 2
+    public double giveMeThePower2(int number) {
+        return Math.pow(number,2);
     }
 
 
