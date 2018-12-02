@@ -17,21 +17,29 @@ public class Main {
         OptimizationOfAandB optimizationOfAandB = new OptimizationOfAandB();
         CalculateTheValueOfSolution calculateTheValueOfSolution = new CalculateTheValueOfSolution();
         System.out.println("the initial solution is:");
+        calculateTheValueOfSolution.setOfThesetter(1,100);
         System.out.println(calculateTheValueOfSolution.estimatedResult());
+        System.out.println("here we go 19: "+calculateTheValueOfSolution.estatingResult());
+
+        System.out.println("here we go 21: "+calculateTheValueOfSolution.estatingResult());
+        calculateTheValueOfSolution.setOfThesetter(0,100);
+        System.out.println("here we go 25: "+calculateTheValueOfSolution.estatingResult());
+        calculateTheValueOfSolution.setOfThesetter(3,100);
+
         System.out.println("################");
         System.out.println("Now, the optimization starts");
 
         // Set initial temp
         double temp = 10000;
         // Cooling rate
-        double coolingRate = 0.001;
+        double coolingRate = 0.01;
         // Initialize intial solution in which all values are starting with 1
         while (temp > 1) {
             for (int x=0;x<rawData.numberOfItemsOfSingleRaw();x++){
                 System.out.println("the X value is: "+x);
                 try {
                     if (true){
-                        // call the first a1
+                        // call the a variable
                         double oldValueOfTheVariable= calculateTheValueOfSolution.getOfTheGetter(x);
                         // the total estimation before the change
                         double resultBefor= calculateTheValueOfSolution.estimatedResult();
@@ -54,13 +62,13 @@ public class Main {
                         }
                     }
                 }catch (Exception e){
-                    System.out.println("where is an error");
+                    System.out.println("there is an error");
                 }
             }
-            //temp *= 1-coolingRate;
-            temp-=1;
+            temp *= 1-coolingRate;
+
         }
-        System.out.println("The solution for first variable is:"+ calculateTheValueOfSolution.getOfTheGetter(0)+" the value of the second variable is: "+ calculateTheValueOfSolution.getOfTheGetter(1)+" the 3 variable= is:"+calculateTheValueOfSolution.getOfTheGetter(2)+" the value of b is:"+calculateTheValueOfSolution.getOfTheGetter(3)+" the value of the fuction is: "+calculateTheValueOfSolution.estimatedResult());
+        System.out.println("The solution for first variable is:"+ calculateTheValueOfSolution.getOfTheGetter(0)+" the value of the second variable is: "+ calculateTheValueOfSolution.getOfTheGetter(1)+" the 3 variable= is:"+calculateTheValueOfSolution.getOfTheGetter(2)+" the value of b is:"+calculateTheValueOfSolution.getOfTheGetter(3)+" the value of the fuction is: "+calculateTheValueOfSolution.getA4()+" the value of the fuction is: "+calculateTheValueOfSolution.estatingResult()+" the value of the fuction is: "+calculateTheValueOfSolution.estimatedResult());
 
     }
 

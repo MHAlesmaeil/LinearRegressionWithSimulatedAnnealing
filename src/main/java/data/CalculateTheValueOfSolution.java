@@ -8,6 +8,12 @@ public class CalculateTheValueOfSolution {
     double a1=1;
     double a2=1;
     double a3=1;
+    double a4=1;
+    double a5=1;
+    double a6=1;
+    double a7=1;
+    double a8=1;
+    double a9=1;
     double bVariable=1;
 
     RawData rawData = new RawData();
@@ -39,11 +45,39 @@ public class CalculateTheValueOfSolution {
     public double estimatedResult (){
         double result =0;
         for (int rawCount=0; rawCount<rawData.numberOfRaws();rawCount++){
-            result+= Math.pow((rawData.list[rawCount][0])-((rawData.list[rawCount][1])*a1+(rawData.list[rawCount][2])*a2+ (rawData.list[rawCount][3])*a3+bVariable),2);
+               result+= Math.pow((rawData.list[rawCount][0])-
+                                ((rawData.list[rawCount][1])*a1+
+                                 (rawData.list[rawCount][2])*a2+
+                                 (rawData.list[rawCount][3])*a3+
+                                 (bVariable)),2);
         }
         return result;
     }
-
+    /**
+     *this method can calculate the values of 10 variables 9*Ai+B
+    */
+    public double estatingResult (){
+       double result = 0;
+        double temp = 0;
+        double negavitive =0;
+        for (int x =0; x<rawData.numberOfRaws();x++){
+            if (true)temp+=((rawData.list[x][0]-bVariable));
+                        if(true)try {negavitive+=(rawData.list[x][1]*a1);}catch (Exception e){}
+                        else if(true)try {negavitive+=(rawData.list[x][2]*a2);}catch (Exception e){}
+                        else if(true)try {negavitive+=(rawData.list[x][3]*a3);}catch (Exception e){}
+                        /*else if(true&&rawData.numberOfItemsOfSingleRaw()<=4)try {negavitive+=(rawData.list[x][4]*a4);}catch (Exception e){}
+                        else if(true&&rawData.numberOfItemsOfSingleRaw()<=5)try {negavitive+=(rawData.list[x][5]*a5);}catch (Exception e){}
+                        else if(true&&rawData.numberOfItemsOfSingleRaw()<=6)try {negavitive+=(rawData.list[x][6]*a6);}catch (Exception e){}
+                        else if(true&&rawData.numberOfItemsOfSingleRaw()<=7)try {negavitive+=(rawData.list[x][7]*a7);}catch (Exception e){}
+                        else if(true&&rawData.numberOfItemsOfSingleRaw()<=8)try {negavitive+=(rawData.list[x][8]*a8);}catch (Exception e){}
+                        else if(true&&rawData.numberOfItemsOfSingleRaw()<=9)try {negavitive+=(rawData.list[x][9]*a9);}catch (Exception e){}*/
+           result+= Math.pow((temp-negavitive),2);
+           // rest the values of the temporary variables
+           temp=0;
+           negavitive=0;
+       }
+       return result;
+    }
     /**
      *as the getter and setter hard coded with the next function we would automate the getting and setting each variables
      */
@@ -56,6 +90,18 @@ public class CalculateTheValueOfSolution {
            setA3(theNewValue);
        else if (x==3)
            setbVariable(theNewValue);
+       else if (x==4)
+           setA4(theNewValue);
+       else if (x==5)
+           setA5(theNewValue);
+       else if (x==6)
+           setA6(theNewValue);
+       else if (x==7)
+           setA7(theNewValue);
+       else if (x==8)
+           setA8(theNewValue);
+       else if (x==9)
+           setA9(theNewValue);
     }
     public double getOfTheGetter (int x){
         double value=0;
@@ -67,17 +113,26 @@ public class CalculateTheValueOfSolution {
             value= getA3();
         else if (x==3)
             value= getbVariable();
+        else if (x==4)
+            value= getA4();
+        else if (x==5)
+            value= getA5();
+        else if (x==6)
+            value= getA6();
+        else if (x==7)
+            value= getA7();
+        else if (x==8)
+            value= getA8();
+        else if (x==9)
+            value= getA9();
         return value;
     }
-
-
     /**
      *getter and setter
     */
     public double getA1() {
         return a1;
     }
-
     public void setA1(double a1) {
         this.a1 = a1;
     }
@@ -104,5 +159,53 @@ public class CalculateTheValueOfSolution {
 
     public void setbVariable(double bVariable) {
         this.bVariable = bVariable;
+    }
+
+    public double getA4() {
+        return a4;
+    }
+
+    public void setA4(double a4) {
+        this.a4 = a4;
+    }
+
+    public double getA5() {
+        return a5;
+    }
+
+    public void setA5(double a5) {
+        this.a5 = a5;
+    }
+
+    public double getA6() {
+        return a6;
+    }
+
+    public void setA6(double a6) {
+        this.a6 = a6;
+    }
+
+    public double getA7() {
+        return a7;
+    }
+
+    public void setA7(double a7) {
+        this.a7 = a7;
+    }
+
+    public double getA8() {
+        return a8;
+    }
+
+    public void setA8(double a8) {
+        this.a8 = a8;
+    }
+
+    public double getA9() {
+        return a9;
+    }
+
+    public void setA9(double a9) {
+        this.a9 = a9;
     }
 }
