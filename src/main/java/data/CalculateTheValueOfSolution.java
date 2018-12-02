@@ -60,13 +60,13 @@ public class CalculateTheValueOfSolution {
     public double getOfTheGetter (int x){
         double value=0;
         if (x==0)
-            value= a1;
+            value= getA1();
         else if (x==1)
-            value= a2;
+            value= getA2();
         else if (x==2)
-            value= a3;
+            value= getA3();
         else if (x==3)
-            value= bVariable;
+            value= getbVariable();
         return value;
     }
 

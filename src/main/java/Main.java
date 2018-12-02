@@ -24,7 +24,7 @@ public class Main {
         // Set initial temp
         double temp = 10000;
         // Cooling rate
-        double coolingRate = 0.00001;
+        double coolingRate = 0.001;
         // Initialize intial solution in which all values are starting with 1
         while (temp > 1) {
             for (int x=0;x<rawData.numberOfItemsOfSingleRaw();x++){
@@ -40,9 +40,8 @@ public class Main {
                         // check if an improvement is detected by injecting the random in the setter of the (a1)
                         calculateTheValueOfSolution.setOfThesetter(x, newValueOfTheVariable);
                         // compare the two results resultBefore and resultAfter
-
                         double resultAfter= calculateTheValueOfSolution.estimatedResult();
-                        System.out.println(resultBefor +" "+resultAfter);
+                        System.out.println("Old Value: "+resultBefor +" New value: "+resultAfter);
                         // if resultBefore greater than result after then keep the change of the random value
                         // else keep the old value of the variable
                         if (resultAfter<resultBefor){
@@ -55,9 +54,11 @@ public class Main {
                         }
                     }
                 }catch (Exception e){
+                    System.out.println("where is an error");
                 }
             }
-            temp *= 1-coolingRate;
+            //temp *= 1-coolingRate;
+            temp-=1;
         }
         System.out.println("The solution for first variable is:"+ calculateTheValueOfSolution.getOfTheGetter(0)+" the value of the second variable is: "+ calculateTheValueOfSolution.getOfTheGetter(1)+" the 3 variable= is:"+calculateTheValueOfSolution.getOfTheGetter(2)+" the value of b is:"+calculateTheValueOfSolution.getOfTheGetter(3)+" the value of the fuction is: "+calculateTheValueOfSolution.estimatedResult());
 

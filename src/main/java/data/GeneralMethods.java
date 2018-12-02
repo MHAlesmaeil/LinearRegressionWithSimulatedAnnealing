@@ -12,7 +12,7 @@ public class GeneralMethods {
 
     // a random number to a given (a) or (b) value which can be up to 100% of the origin
     public double giveMeARandomUpTo100Percent (double numberToBeRandomed){
-        double randomMe = numberToBeRandomed*2* (new Random().nextDouble());
+        double randomMe = numberToBeRandomed*1.5* (new Random().nextDouble());
         return randomMe;
     }
     /**
