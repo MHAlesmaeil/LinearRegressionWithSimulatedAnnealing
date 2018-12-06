@@ -3,73 +3,55 @@ import data.GeneralMethods;
 import data.OptimizationOfAandB;
 import data.RawData;
 
+import java.sql.Time;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-
-        /*RawData rawData = new RawData();
-        CalculateTheValueOfSolution implementation = new CalculateTheValueOfSolution();
-        OptimizationOfAandB estimatingTheValue = new OptimizationOfAandB();
-        for (int x=0; x<30;x++){
-            estimatingTheValue.start();
-        }*/
-        RawData rawData= new RawData();
-        GeneralMethods generalMethods= new GeneralMethods();
-        OptimizationOfAandB optimizationOfAandB = new OptimizationOfAandB();
         CalculateTheValueOfSolution calculateTheValueOfSolution = new CalculateTheValueOfSolution();
-        System.out.println("the initial solution is:");
-        calculateTheValueOfSolution.setOfThesetter(1,100);
-        System.out.println(calculateTheValueOfSolution.estimatedResult());
-        System.out.println("here we go 19: "+calculateTheValueOfSolution.estatingResult());
+        GeneralMethods generalMethods = new GeneralMethods();
+        System.out.println(calculateTheValueOfSolution.estimatedResult(2, 0.007, 30.026, 100.329));
 
-        System.out.println("here we go 21: "+calculateTheValueOfSolution.estatingResult());
-        calculateTheValueOfSolution.setOfThesetter(0,100);
-        System.out.println("here we go 25: "+calculateTheValueOfSolution.estatingResult());
-        calculateTheValueOfSolution.setOfThesetter(3,100);
 
-        System.out.println("################");
-        System.out.println("Now, the optimization starts");
 
-        // Set initial temp
-        double temp = 10000;
-        // Cooling rate
-        double coolingRate = 0.01;
-        // Initialize intial solution in which all values are starting with 1
-        while (temp > 1) {
-            for (int x=0;x<rawData.numberOfItemsOfSingleRaw();x++){
-                System.out.println("the X value is: "+x);
-                try {
-                    if (true){
-                        // call the a variable
-                        double oldValueOfTheVariable= calculateTheValueOfSolution.getOfTheGetter(x);
-                        // the total estimation before the change
-                        double resultBefor= calculateTheValueOfSolution.estimatedResult();
-                        // call random method
-                        double newValueOfTheVariable=generalMethods.giveMeARandomUpTo100Percent(oldValueOfTheVariable);
-                        // check if an improvement is detected by injecting the random in the setter of the (a1)
-                        calculateTheValueOfSolution.setOfThesetter(x, newValueOfTheVariable);
-                        // compare the two results resultBefore and resultAfter
-                        double resultAfter= calculateTheValueOfSolution.estimatedResult();
-                        System.out.println("Old Value: "+resultBefor +" New value: "+resultAfter);
-                        // if resultBefore greater than result after then keep the change of the random value
-                        // else keep the old value of the variable
-                        if (resultAfter<resultBefor){
-                            System.out.println("a new Value accepted");
-                        }else{
-                            System.out.println("No improvement was detected");
-                            calculateTheValueOfSolution.setOfThesetter(x,oldValueOfTheVariable);
-                            // if there is no improvement detected
-                            // we can check if changing in the other values brings a better result
-                        }
-                    }
-                }catch (Exception e){
-                    System.out.println("there is an error");
+
+        /**
+         *Test number 1 to select the best temp,cooling rate and factor
+        */
+        /*// set of data that we want to get and analyse
+        // temprature value needs to be more than one
+        double [] tempratueValues= {1.1,1.2,2,3,4,5,10};
+        // cooling rate e.g. 0.001
+        double [] coolingRate= {0.000001,0.00001,0.0001,0.001};
+        // factorToMultiply must be greater than one
+        double [] factorToMultiply= {1.1,1.2,2,3,4,5};
+        for (int x=0;x<tempratueValues.length;x++){
+            for (int y=0; y<coolingRate.length;y++){
+                for (int z =0; z<factorToMultiply.length;z++){
+                    OptimizationOfAandB optimization = new OptimizationOfAandB(tempratueValues[x],coolingRate[y],factorToMultiply[z]);
                 }
             }
-            temp *= 1-coolingRate;
+        }*/
 
+        /**
+         *After selecting couple of number to be test
+        */
+
+        // temprature value needs to be more than one
+        double [] tempratueValues= {10};
+        // cooling rate e.g. 0.001
+        double [] coolingRate= {0.0000001};
+        // factorToMultiply must be greater than one
+        double [] factorToMultiply= {1.1};
+        for (int x=0;x<tempratueValues.length;x++){
+            for (int y=0; y<coolingRate.length;y++){
+                for (int z =0; z<factorToMultiply.length;z++){
+                    OptimizationOfAandB optimization = new OptimizationOfAandB(tempratueValues[x],coolingRate[y],factorToMultiply[z]);
+                }
+            }
         }
-        System.out.println("The solution for first variable is:"+ calculateTheValueOfSolution.getOfTheGetter(0)+" the value of the second variable is: "+ calculateTheValueOfSolution.getOfTheGetter(1)+" the 3 variable= is:"+calculateTheValueOfSolution.getOfTheGetter(2)+" the value of b is:"+calculateTheValueOfSolution.getOfTheGetter(3)+" the value of the fuction is: "+calculateTheValueOfSolution.getA4()+" the value of the fuction is: "+calculateTheValueOfSolution.estatingResult()+" the value of the fuction is: "+calculateTheValueOfSolution.estimatedResult());
 
     }
-
 }

@@ -5,6 +5,7 @@ package data;
 public class CalculateTheValueOfSolution {
 
     // initialing the variables with a value of 1
+
     double a1=1;
     double a2=1;
     double a3=1;

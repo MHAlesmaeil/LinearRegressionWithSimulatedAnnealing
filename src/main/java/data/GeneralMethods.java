@@ -3,6 +3,7 @@ package data;
 import impl.DataManager;
 
 import javax.annotation.PostConstruct;
+import java.util.List;
 import java.util.Random;
 
 // data methods presents the way and how to change a data
@@ -11,8 +12,8 @@ public class GeneralMethods {
     CalculateTheValueOfSolution calculateTheValueOfSolution= new CalculateTheValueOfSolution();
 
     // a random number to a given (a) or (b) value which can be up to 100% of the origin
-    public double giveMeARandomUpTo100Percent (double numberToBeRandomed){
-        double randomMe = numberToBeRandomed*1.5* (new Random().nextDouble());
+    public double giveMeARandom (double numberToBeRandomed, double factorToMultiplyWithOriginalOne){
+        double randomMe = numberToBeRandomed*factorToMultiplyWithOriginalOne* (new Random().nextDouble());
         return randomMe;
     }
     /**
@@ -21,10 +22,13 @@ public class GeneralMethods {
      * z= a new random number which is between (0-1)
      * p= (1/e^(|f(Xnew)-f(X)|)/T
     */
-    public double possiblityToAcceptASolution (double newResultOfAVariable, double oldResultAVariable, double timeOfCooling){
+    public double possiblityToAcceptASolution (double newResultOfAVariable,
+                                               double oldResultOfAVariable,
+                                               double timeOfCooling){
         double p;
-        double fDiffernce = newResultOfAVariable-oldResultAVariable;
-        p= (1/Math.exp((Math.abs(fDiffernce)/timeOfCooling)));
+        double fDiffernce = newResultOfAVariable-oldResultOfAVariable;
+        double valueOfEexpo= 1/Math.exp((Math.abs(fDiffernce)/timeOfCooling));
+        p= (valueOfEexpo);
         return p;
     }
     /**
@@ -41,9 +45,7 @@ public class GeneralMethods {
         }catch (Exception e){
             System.out.println("please check your imput");
             return 0;
-
         }
-
     }
     /**
      *calculating the variance to be able to estimate z
@@ -63,9 +65,16 @@ public class GeneralMethods {
         }catch (Exception e){
             return 0;
         }
-
     }
+    /**
+     *calling the checking function
+     * if a variable did not show an improvement for a certain times of loops then it will be escaped
+     * and so the time of computing will be shorten
+     * @whenToEscapeit: after how many loop with no improvement this variable will be escaped automatically
+     */
 
-
-
+    public void checkMe(int variablePostion, boolean improvementTricker,int whenToEscapeit){
+    }
+    public void checkMe(int VaribalePosition){
+    }
 }
