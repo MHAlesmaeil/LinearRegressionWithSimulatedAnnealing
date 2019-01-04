@@ -17,9 +17,7 @@ public class OptimizationOfAandB{
 
     // Set initial temp need to be greater than 1 (last was set to = 20)
     double temp;
-    // Cooling rate (last was set to = 0.001)
     double coolingRate;
-    // this value is to multiply the original number with before multiply it again with a random (last was set to =1.5)
     double factorToMultiply;
 
     // when to escape a variable that does not show an improvement
@@ -106,7 +104,6 @@ public class OptimizationOfAandB{
                             if (zValue<pValue){
                                 //System.out.println("A limited bad result is accepted");
 
-
                             }else {
                                 // the old value is set again --> no changes is taking place
                                 calculateTheValueOfSolution.setOfThesetter(x,oldValueOfTheVariable);
@@ -123,7 +120,14 @@ public class OptimizationOfAandB{
 
             if (calculateTheValueOfSolution.estimatedResult()<bestResult){
                 bestResult= calculateTheValueOfSolution.estimatedResult();
-                bestRecord="Best_Loop#| "+counterTOShowDevelopement+" | A1| "+ calculateTheValueOfSolution.getOfTheGetter(0)+"| A2| "+ calculateTheValueOfSolution.getOfTheGetter(1)+"| A3| "+calculateTheValueOfSolution.getOfTheGetter(2)+"| B| "+calculateTheValueOfSolution.getbVariable()+"| FunctionValue| "+calculateTheValueOfSolution.estimatedResult();
+                bestRecord="Best_Loop#| "+counterTOShowDevelopement+
+                        "|A1|"+ calculateTheValueOfSolution.getOfTheGetter(0)+
+                        "|A2|"+calculateTheValueOfSolution.getOfTheGetter(1)+
+                        "|A3|"+calculateTheValueOfSolution.getOfTheGetter(2)+
+                        /*"|A4|"+calculateTheValueOfSolution.getOfTheGetter(3)+
+                        "|A5|"+calculateTheValueOfSolution.getOfTheGetter(4)+*/
+                        "|B|"+calculateTheValueOfSolution.getbVariable()+
+                        "|FunctionValue| "+calculateTheValueOfSolution.estimatedResult();
 
             }
             // inceasing the counter to know the number of loops
@@ -141,7 +145,14 @@ public class OptimizationOfAandB{
                 counterTOShowDevelopement==3000||
                 counterTOShowDevelopement==5000||
                 counterTOShowDevelopement==10000){
-                String s="Loop#| "+counterTOShowDevelopement+"| A1| "+ calculateTheValueOfSolution.getOfTheGetter(0)+"| A2| "+ calculateTheValueOfSolution.getOfTheGetter(1)+"| A3| "+calculateTheValueOfSolution.getOfTheGetter(2)+"| B| "+calculateTheValueOfSolution.getbVariable()+"| FunctionValue| "+calculateTheValueOfSolution.estimatedResult();
+                String s="Loop#|"+counterTOShowDevelopement+
+                        "|A1|"+ calculateTheValueOfSolution.getOfTheGetter(0)+
+                        "|A2|"+calculateTheValueOfSolution.getOfTheGetter(1)+
+                        "|A3|"+calculateTheValueOfSolution.getOfTheGetter(2)+
+                        /*"|A4|"+calculateTheValueOfSolution.getOfTheGetter(3)+
+                        "|A5|"+calculateTheValueOfSolution.getOfTheGetter(4)+*/
+                        "|B|"+calculateTheValueOfSolution.getbVariable()+
+                        "|FunctionValue| "+calculateTheValueOfSolution.estimatedResult();
                 s=s.replace(".",",");
                 tableOfFigures.add(s);
             }
@@ -152,7 +163,14 @@ public class OptimizationOfAandB{
             System.out.println(singleString);
         }
         // show the final loop result
-        String finalLoop= "Loop#| "+counterTOShowDevelopement+"| A1| "+ calculateTheValueOfSolution.getOfTheGetter(0)+"| A2| "+ calculateTheValueOfSolution.getOfTheGetter(1)+"| A3| "+calculateTheValueOfSolution.getOfTheGetter(2)+"| B| "+calculateTheValueOfSolution.getbVariable()+"| FunctionValue| "+calculateTheValueOfSolution.estimatedResult();
+        String finalLoop= "Loop#|"+counterTOShowDevelopement+
+                "| A1|"+ calculateTheValueOfSolution.getOfTheGetter(0)+
+                "| A2|"+ calculateTheValueOfSolution.getOfTheGetter(1)+
+                "| A3|"+calculateTheValueOfSolution.getOfTheGetter(2)+
+                /*"| A4|"+calculateTheValueOfSolution.getOfTheGetter(3)+
+                "| A5|"+calculateTheValueOfSolution.getOfTheGetter(4)+*/
+                "| B|"+calculateTheValueOfSolution.getbVariable()+
+                "| FunctionValue| "+calculateTheValueOfSolution.estimatedResult();
         finalLoop= finalLoop.replace(".",",");
         System.out.println(finalLoop);
         // Print out the best record that was noticed

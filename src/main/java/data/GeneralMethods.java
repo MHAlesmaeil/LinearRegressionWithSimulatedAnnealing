@@ -27,8 +27,8 @@ public class GeneralMethods {
                                                double timeOfCooling){
         double p;
         double fDiffernce = newResultOfAVariable-oldResultOfAVariable;
-        double valueOfEexpo= 1/Math.exp((Math.abs(fDiffernce)/timeOfCooling));
-        p= (valueOfEexpo);
+        fDiffernce= 1/Math.exp((Math.abs(fDiffernce)/timeOfCooling));
+        p= (fDiffernce);
         return p;
     }
     /**

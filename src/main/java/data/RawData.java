@@ -5,21 +5,21 @@ package data;
 */
 public class RawData {
     // first variable is the dependent variable and the others are independent variables
-    public double[][] list =   {{140, 20,18,0},
-                                {136, 10,0,1},
-                                {94, 5,24,0},
-                                {190, 22,0,1},
-                                {161, 26,18,0},
-                                {112, 12,12,0},
-                                {143, 16,12,0},
-                                {151, 7,18,1},
-                                {103, 6,0,0},
-                                {181, 34,18,1},
-                                {176, 18,0,1},
-                                {128, 4,24,0}};
+    public double[][] list =   {{140,20,18,0},
+                                {136,10,0,1},
+                                {94,5,24,0},
+                                {190,22,0,1},
+                                {161,26,18,0},
+                                {112,12,12,0},
+                                {143,16,12,0},
+                                {151,7,18,1},
+                                {103,6,0,0},
+                                {181,34,18,1},
+                                {176,18,0,1},
+                                {128,4,24,0}};
 
 
-    // returning the number of the raw or how many set of data are entered
+    // returning the number of the raws or how many set of data are entered
     public int numberOfRaws() {
         if (list != null) {
             return list.length;

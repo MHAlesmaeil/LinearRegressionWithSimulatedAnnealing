@@ -9,13 +9,14 @@ public class CalculateTheValueOfSolution {
     double a1=1;
     double a2=1;
     double a3=1;
+    double bVariable=1;
     double a4=1;
     double a5=1;
     double a6=1;
     double a7=1;
     double a8=1;
     double a9=1;
-    double bVariable=1;
+
 
     RawData rawData = new RawData();
     // equation to prove the estimated value of the single elements
@@ -43,6 +44,19 @@ public class CalculateTheValueOfSolution {
         }
         return result;
     }
+    public double estimatedResult (double a1, double a2,double a3,double a4,double a5, double bVariable){
+        double result =0;
+        for (int rawCount=0; rawCount<rawData.numberOfRaws();rawCount++){
+            result+= Math.pow((rawData.list[rawCount][0])-
+                                ((rawData.list[rawCount][1])*a1+
+                                (rawData.list[rawCount][2])*a2+
+                                (rawData.list[rawCount][3])*a3+
+                                /*(rawData.list[rawCount][4])*a4+
+                                (rawData.list[rawCount][5])*a5+*/
+                            bVariable),2);
+        }
+        return result;
+    }
     public double estimatedResult (){
         double result =0;
         for (int rawCount=0; rawCount<rawData.numberOfRaws();rawCount++){
@@ -50,6 +64,8 @@ public class CalculateTheValueOfSolution {
                                 ((rawData.list[rawCount][1])*a1+
                                  (rawData.list[rawCount][2])*a2+
                                  (rawData.list[rawCount][3])*a3+
+                                 /*(rawData.list[rawCount][4])*a4+
+                                 (rawData.list[rawCount][5])*a5+*/
                                  (bVariable)),2);
         }
         return result;
@@ -62,6 +78,7 @@ public class CalculateTheValueOfSolution {
         double temp = 0;
         double negavitive =0;
         for (int x =0; x<rawData.numberOfRaws();x++){
+            // TODO: 07.12.2018 where is the start
             if (true)temp+=((rawData.list[x][0]-bVariable));
                         if(true)try {negavitive+=(rawData.list[x][1]*a1);}catch (Exception e){}
                         else if(true)try {negavitive+=(rawData.list[x][2]*a2);}catch (Exception e){}
